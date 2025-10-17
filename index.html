@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="form-container">
+      <div class="heading">
+        <h1>Let's find your perfect pet!</h1>
+      </div>
+      <form class="petForm">
+        <label for="persons-name"
+          >Name: <span style="color: red">*</span></label
+        >
+        <input
+          type="text"
+          id="persons-name"
+          name="yourname"
+          placeholder="Jane Doe"
+          required
+        />
+
+        <label for="mail">Email: <span style="color: red">*</span></label>
+        <input
+          type="email"
+          id="mail"
+          name="user_email"
+          placeholder="example@123.com"
+          required
+        />
+
+        <label for="zipcode">Zip Code: <span style="color: red">*</span></label>
+        <input
+          type="text"
+          id="zipcode"
+          name="zipcode"
+          placeholder="Zip Code"
+          pattern="[0-9]{5}"
+          maxlength="5"
+          required
+        />
+
+        <label for="option"
+          >Type of pet: <span style="color: red">*</span></label
+        >
+        <select id="option" name="option" required>
+          <option value="">--Select One--</option>
+          <option value="cat">Cat</option>
+          <option value="dog">Dog</option>
+          <option value="bird">Bird</option>
+          <option value="rabbit">Rabbit</option>
+        </select>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <div class="card-container"></div>
+    <script src="js/script.js"></script>
+  </body>
+</html>

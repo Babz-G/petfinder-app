@@ -43,16 +43,30 @@ function showPets(pets) {
   const container = document.querySelector(".card-container");
   container.innerHTML = "";
 
+  if (!pets || pets.length === 0) {
+    container.innerHTML = "<p>No pets found. Try a different search!</p>";
+    return;
+  }
+
   pets.forEach((pet) => {
     const card = document.createElement("div");
     card.classList.add("pet-card");
 
-    const image = document.createElement("img");
-    image.src =
-      pet.photos?.[0]?.medium ||
-      "https://via.placeholder.com/300x200?text=No+Image";
-    image.alt = pet.name;
-    card.appendChild(image);
+    // Check if pet has a photo
+    if (pet.photos?.[0]?.medium) {
+      const image = document.createElement("img");
+      image.src = pet.photos[0].medium;
+      image.alt = pet.name;
+      card.appendChild(image);
+    } else {
+      // Create a placeholder div with text and paw print background
+      const placeholder = document.createElement("div");
+      placeholder.classList.add("image-placeholder");
+      placeholder.innerHTML = `
+        <p>Sorry, there's no image<br>of ${pet.name}<br>at this time</p>
+      `;
+      card.appendChild(placeholder);
+    }
 
     const name = document.createElement("h3");
     name.textContent = pet.name;
